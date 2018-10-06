@@ -130,6 +130,7 @@ private[tracker] class InstanceTrackerDelegate(
   override def setGoal(instanceId: Instance.Id, goal: Goal): Future[Done] = {
     import scala.concurrent.ExecutionContext.Implicits.global
 
+    logger.warn(s"adjusting $instanceId to goal $goal")
     process(InstanceUpdateOperation.GoalChange(instanceId, goal)).map(_ => Done)
   }
 }
