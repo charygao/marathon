@@ -125,7 +125,6 @@ class InstanceOpFactoryImpl(
         config.defaultAcceptedResourceRolesSet, config, schedulerPlugins, localRegion)
     matchResponse match {
       case matches: ResourceMatchResponse.Match =>
-        val now = clock.now()
 
         val taskId = Task.Id.forInstanceId(scheduledInstance.instanceId)
         val taskBuilder = new TaskBuilder(app, taskId, config, runSpecTaskProc)
